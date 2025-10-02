@@ -1,7 +1,7 @@
-### Anonim-Chat-V2
+# Anonim-Chat-V2
 ## Anonim Chat App
 
-# Versiyon 2.0
+### Versiyon 2.0
 
 Kullanıcı Kayıt ve Giriş – Kullanıcılar kayıt olup login olarak chat sayfasına yönlendiriliyor.
 

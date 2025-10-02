@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ana Sayfa</title>
+</head>
+<body>
+  <h1>Hoş Geldiniz</h1>
+
+  <h2>Kayıt Ol</h2>
+  <form action="/register" method="post">
+    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" name="password" placeholder="Şifre" required>
+    <button type="submit">Kayıt Ol</button>
+  </form>
+
+  <h2>Giriş Yap</h2>
+  <form action="/login" method="post">
+    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" name="password" placeholder="Şifre" required>
+    <button type="submit">Giriş Yap</button>
+  </form>
+
+  <p><a href="/admin?password=1234">Admin Paneli</a></p>
+</body>
+</html>

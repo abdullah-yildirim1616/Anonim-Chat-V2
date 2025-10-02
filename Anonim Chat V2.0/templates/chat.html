@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sohbet</title>
+</head>
+<body>
+  <h1>Sohbet</h1>
+  <input id="messageInput" type="text" placeholder="Mesaj yaz...">
+  <button onclick="sendMessage()">Gönder</button>
+  <ul id="messages"></ul>
+
+  <script>
+    let userId = "{{ user_id }}";
+    let ws = new WebSocket("ws://127.0.0.1:8000/ws/chat/" + userId);
+
+    ws.onmessage = function(event) {
+      let messages = document.getElementById('messages');
+      let message = document.createElement('li');
+      message.textContent = event.data;
+      messages.appendChild(message);
+    };
+
+    function sendMessage() {
+        let input = document.getElementById("messageInput");
+        let message = input.value;
+        if (message.trim() === "") return;
+
+        // Kendi ekranına ekle
+        let messages = document.getElementById("messages");
+        let li = document.createElement("li");
+        li.textContent = "Sen: " + message;
+        messages.appendChild(li);
+
+        // Karşı tarafa gönder
+        ws.send(message);
+        input.value = '';
+    }
+  </script>
+</body>
+</html>
